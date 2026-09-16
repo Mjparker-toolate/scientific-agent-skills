@@ -514,6 +514,9 @@ packages = ["dnaerys"]
 [skills.genomic-intelligence]
 packages = ["requests"]
 
+[skills.alphagenome]
+packages = ["alphagenome"]
+
 [skills.dhdna-profiler]
 packages = []
 
