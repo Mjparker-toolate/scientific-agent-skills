@@ -1,0 +1,29 @@
+{
+  "name": "ball_and_stick",
+  "description": "Hodgkin-Huxley soma with a passive 200 um dendrite split into four compartments. Groups: soma, dendrite. Shows group-scoped channels, per-group trainables, and a passive geometry parameter (dendrite radius) as a trainable.",
+  "morphology": {
+    "type": "ball_and_stick",
+    "soma_radius": 10.0,
+    "soma_length": 20.0,
+    "dendrite_radius": 1.0,
+    "dendrite_length": 200.0,
+    "dendrite_ncomp": 4
+  },
+  "v_init": -65.0,
+  "channels": [
+    {"channel": "HH", "group": "soma"},
+    {"channel": "Leak", "group": "dendrite"}
+  ],
+  "parameters": [
+    {"key": "axial_resistivity", "value": 100.0, "group": "all"},
+    {"key": "capacitance", "value": 1.0, "group": "all"},
+    {"key": "Leak_gLeak", "value": 0.0001, "group": "dendrite"},
+    {"key": "Leak_eLeak", "value": -65.0, "group": "dendrite"}
+  ],
+  "trainable": [
+    {"key": "HH_gNa", "group": "soma", "lower": 0.01, "upper": 0.5},
+    {"key": "HH_gK", "group": "soma", "lower": 0.001, "upper": 0.2},
+    {"key": "Leak_gLeak", "group": "dendrite", "lower": 1e-05, "upper": 0.001},
+    {"key": "radius", "group": "dendrite", "lower": 0.3, "upper": 3.0}
+  ]
+}

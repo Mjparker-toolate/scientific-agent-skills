@@ -1,0 +1,15 @@
+{
+  "description": "Training protocol: three 40 ms somatic step currents at 0.05, 0.1, and 0.2 nA, soma voltage recorded. For the hh_soma model these give one spike, repetitive firing, and faster firing.",
+  "delta_t": 0.025,
+  "t_max": 60.0,
+  "solver": "bwd_euler",
+  "stimulus": {"group": "soma", "branch": 0, "loc": 0.5},
+  "recordings": [
+    {"group": "soma", "branch": 0, "loc": 0.5, "state": "v"}
+  ],
+  "steps": [
+    {"label": "step_0.05nA", "i_delay": 5.0, "i_dur": 40.0, "i_amp": 0.05},
+    {"label": "step_0.10nA", "i_delay": 5.0, "i_dur": 40.0, "i_amp": 0.1},
+    {"label": "step_0.20nA", "i_delay": 5.0, "i_dur": 40.0, "i_amp": 0.2}
+  ]
+}
