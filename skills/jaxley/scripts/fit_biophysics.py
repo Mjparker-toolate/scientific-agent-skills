@@ -148,7 +148,7 @@ def main(argv: list[str] | None = None) -> int:
         best_params = jax.tree_util.tree_map(lambda best, current: jnp.where(improved, current, best), best_params, opt_params)
         if args.optimizer == "polyak":
             grads, learning_rate = common.polyak_step(grads, loss_value, mu=args.learning_rate, beta=args.beta)
-            opt_state.hyperparams["learning_rate"] = learning_rate
+            opt_state = opt_state._replace(hyperparams={**opt_state.hyperparams, "learning_rate": learning_rate})
         updates, new_state = optimizer.update(grads, opt_state, opt_params)
         new_params = optax.apply_updates(opt_params, updates)
         # A diverged candidate keeps its last finite parameters instead of spreading NaN.
