@@ -1,0 +1,14 @@
+{
+  "description": "Held-out validation protocol: amplitudes and a duration the training protocol never used. A model that only memorised the training traces will not reproduce these.",
+  "delta_t": 0.025,
+  "t_max": 80.0,
+  "solver": "bwd_euler",
+  "stimulus": {"group": "soma", "branch": 0, "loc": 0.5},
+  "recordings": [
+    {"group": "soma", "branch": 0, "loc": 0.5, "state": "v"}
+  ],
+  "steps": [
+    {"label": "heldout_0.075nA", "i_delay": 10.0, "i_dur": 60.0, "i_amp": 0.075},
+    {"label": "heldout_0.15nA", "i_delay": 10.0, "i_dur": 60.0, "i_amp": 0.15}
+  ]
+}

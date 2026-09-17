@@ -630,6 +630,12 @@ packages = ["spikeinterface", "probeinterface", "neo", "matplotlib", "numpy", "p
 [skills.arbor]
 packages = ["arbor"]
 
+# jaxley's own wheel pulls jax, numpy, pandas>=2.2, tridiax and networkx; optax
+# drives the training loop and jaxley-mech supplies the published channel sets
+# the skill documents (the L5PC example). Current jax wheels need Python 3.12+.
+[skills.jaxley]
+packages = ["jaxley", "optax", "jaxley-mech", "jax", "numpy", "pandas"]
+
 # --- quantum computing ----------------------------------------------------
 
 [skills.qiskit]
